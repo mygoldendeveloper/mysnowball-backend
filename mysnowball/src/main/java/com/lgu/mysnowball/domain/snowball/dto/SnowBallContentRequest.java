@@ -9,5 +9,7 @@ public class SnowBallContentRequest {
 
     private Long receiverId;
 
+    private String nickName;
+
     private String content;
 }

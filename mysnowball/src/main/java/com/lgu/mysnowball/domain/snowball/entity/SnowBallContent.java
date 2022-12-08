@@ -32,6 +32,9 @@ public class SnowBallContent {
     @Column(name = "content")
     private String content;
 
+    @Column(name = "nick_name")
+    private String nickName;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "snow_ball_id")
     private SnowBall snowBall;

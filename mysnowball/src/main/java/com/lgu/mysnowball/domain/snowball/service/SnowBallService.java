@@ -63,6 +63,7 @@ public class SnowBallService {
         SnowBallContent snowBallContent = SnowBallContent.builder()
             .snowBall(snowBall)
             .uuid(getUUIDOfReceiver(snowBallContentRequest.getReceiverId()))
+            .nickName(snowBallContentRequest.getNickName())
             .accessToken(accessToken)
             .content(snowBallContentRequest.getContent())
             .build();
