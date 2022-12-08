@@ -24,7 +24,7 @@ public class SnowBallService {
     private final SnowBallContentRepository snowBallContentRepository;
     private final MessageService messageService;
 
-    public SnowBallResponse createSnowball(SnowBallCreateRequest snowBallCreateRequest) {
+    public SnowBallResponse createSnowBall(SnowBallCreateRequest snowBallCreateRequest) {
 
         SnowBall snowBall = SnowBall.builder()
             .id(snowBallCreateRequest.getId())
@@ -35,6 +35,16 @@ public class SnowBallService {
             .build();
 
         return SnowBallMapper.instance.toSnowBallResponse(snowBallRepository.save(snowBall));
+    }
+
+    public SnowBallResponse getSnowBall(Long id) {
+
+        SnowBall snowBall = snowBallRepository.findById(id)
+            .orElseThrow(() -> {
+                throw new RuntimeException("해당 스노우볼이 존재하지 않습니다.");
+            });
+
+        return SnowBallMapper.instance.toSnowBallResponse(snowBall);
     }
 
     public List<SnowBallContentResponse> getSnowBallContents(Long id) {
