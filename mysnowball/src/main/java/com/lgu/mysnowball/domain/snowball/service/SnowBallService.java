@@ -22,6 +22,7 @@ public class SnowBallService {
 
     private final SnowBallRepository snowBallRepository;
     private final SnowBallContentRepository snowBallContentRepository;
+    private final MessageService messageService;
 
     public SnowBallResponse createSnowball(SnowBallCreateRequest snowBallCreateRequest) {
 
@@ -55,6 +56,8 @@ public class SnowBallService {
             .accessToken(accessToken)
             .content(snowBallContentRequest.getContent())
             .build();
+
+        messageService.sendOne(snowBallContent.getContent(), snowBall.getPhoneNumber());
 
         return SnowBallMapper.instance.toSnowBallContentResponse(snowBallContentRepository.save(snowBallContent));
     }
