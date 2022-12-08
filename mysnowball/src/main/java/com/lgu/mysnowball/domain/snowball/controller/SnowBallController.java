@@ -22,6 +22,11 @@ public class SnowBallController {
 
     private final SnowBallService snowBallService;
 
+    @GetMapping("/health")
+    public String health(){
+        return "status ok";
+    }
+
     @PostMapping
     public SnowBallResponse createSnowBall(@RequestBody SnowBallCreateRequest snowBallCreateRequest) {
 
