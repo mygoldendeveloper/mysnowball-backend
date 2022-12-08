@@ -9,6 +9,8 @@ public class SnowBallCreateRequest {
 
     private String nickName;
 
+    private String phoneNumber;
+
     private String accessToken;
 
     private String refreshToken;

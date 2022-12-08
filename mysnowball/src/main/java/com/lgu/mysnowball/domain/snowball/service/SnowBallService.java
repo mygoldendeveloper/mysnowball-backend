@@ -28,6 +28,7 @@ public class SnowBallService {
         SnowBall snowBall = SnowBall.builder()
             .id(snowBallCreateRequest.getId())
             .nickName(snowBallCreateRequest.getNickName())
+            .phoneNumber(snowBallCreateRequest.getPhoneNumber())
             .accessToken(snowBallCreateRequest.getAccessToken())
             .refreshToken(snowBallCreateRequest.getRefreshToken())
             .build();

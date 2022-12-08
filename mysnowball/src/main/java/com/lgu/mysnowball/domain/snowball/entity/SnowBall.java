@@ -26,6 +26,9 @@ public class SnowBall {
     @Column(name = "nick_name")
     private String nickName;
 
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
     @Column(name = "access_token")
     private String accessToken;
 
