@@ -21,4 +21,19 @@ public class KakaoController {
         System.out.println("controller access_token : " + access_Token);
 
     }
+
+    @RequestMapping(value = "/kakao/frined")
+    public void getFrinds(@RequestParam("token") String token) {
+        kakaoService.isFrind(token, "qwe");
+    }
+
+    @RequestMapping(value = "/kakao/agree")
+    public void addAgree() {
+        kakaoService.addAgree();
+    }
+
+    @RequestMapping(value = "/kakao/message")
+    public void sendMessage(@RequestParam("token") String token){
+        kakaoService.sendMessage(token, "");
+    }
 }

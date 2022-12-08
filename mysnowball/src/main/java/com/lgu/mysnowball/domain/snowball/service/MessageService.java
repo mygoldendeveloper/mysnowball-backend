@@ -25,8 +25,8 @@ public class MessageService {
         Message message = new Message();
         // 발신번호 및 수신번호는 반드시 01012345678 형태로 입력되어야 합니다.
         message.setFrom("01051162994");
-        message.setTo(recipientNo);
-        message.setText("누군가 메시지를 보냈어요!\n아래링크로 확인해보세요! \n \n https://www.naver.com");
+        message.setTo(recipientNo.replaceAll("-", ""));
+        message.setText("누군가 메시지를 보냈어요!\n-메시지 확인 \n https://mysnowball.me/\n-보답하기 \n https://gift.kakao.com");
 
         try {
             Thread.sleep(1000);
