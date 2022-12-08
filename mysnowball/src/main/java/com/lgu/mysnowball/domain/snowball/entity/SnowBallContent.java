@@ -9,12 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Table(name = "snow_ball_content")
 public class SnowBallContent {
 
@@ -29,4 +35,10 @@ public class SnowBallContent {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "snow_ball_id")
     private SnowBall snowBall;
+
+    @Column(name = "accessToken")
+    private String accessToken;
+
+    @Column(name = "uuid")
+    private String uuid;
 }
