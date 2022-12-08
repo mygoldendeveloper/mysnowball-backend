@@ -29,13 +29,13 @@ public class SnowBallController {
 
     }
 
-    @GetMapping("/content")
+    @GetMapping("/contents")
     public List<SnowBallContentResponse> getSnowBallContent(@RequestParam Long id) {
 
         return this.snowBallService.getSnowBallContents(id);
     }
 
-    @PostMapping("/content")
+    @PostMapping("/contents")
     public SnowBallContentResponse createSnowBallContent(@RequestBody SnowBallContentRequest snowBallContentRequest, HttpServletRequest request) {
 
         return this.snowBallService.createSnowBallContent(snowBallContentRequest, request.getHeader("Authorization"));
