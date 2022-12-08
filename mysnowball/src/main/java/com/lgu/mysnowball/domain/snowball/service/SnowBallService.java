@@ -68,7 +68,9 @@ public class SnowBallService {
             .content(snowBallContentRequest.getContent())
             .build();
 
-        int order = snowBallContentRepository.findOrderOfSnowBallContent(snowBallContent.getId(), snowBall);
+        SnowBallContent sno = snowBallContentRepository.save(snowBallContent);
+
+        int order = snowBallContentRepository.findOrderOfSnowBallContent(sno.getId(), snowBall);
 
         messageService.sendOne(snowBallContent.getContent(), snowBallContentRequest.getNickName(), snowBall, order);
 
