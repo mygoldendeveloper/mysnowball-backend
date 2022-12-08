@@ -68,7 +68,9 @@ public class SnowBallService {
             .content(snowBallContentRequest.getContent())
             .build();
 
-        messageService.sendOne(snowBallContent.getContent(), snowBall.getPhoneNumber());
+        int order = snowBallContentRepository.findOrderOfSnowBallContent(snowBallContent.getId(), snowBall);
+
+        messageService.sendOne(snowBallContent.getContent(), snowBallContentRequest.getNickName(), snowBall, order);
 
         return SnowBallMapper.instance.toSnowBallContentResponse(snowBallContentRepository.save(snowBallContent));
     }

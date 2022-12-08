@@ -1,5 +1,6 @@
 package com.lgu.mysnowball.domain.snowball.service;
 
+import com.lgu.mysnowball.domain.snowball.entity.SnowBall;
 import net.nurigo.sdk.NurigoApp;
 import net.nurigo.sdk.message.model.Message;
 import net.nurigo.sdk.message.request.SingleMessageSendingRequest;
@@ -21,12 +22,13 @@ public class MessageService {
     /**
      * 단일 메시지 발송 예제
      */
-    public void sendOne(String snowballMessage, String recipientNo) {
+    public void sendOne(String snowballMessage, String nickName, SnowBall snowBall, int order) {
+
         Message message = new Message();
         // 발신번호 및 수신번호는 반드시 01012345678 형태로 입력되어야 합니다.
         message.setFrom("01051162994");
-        message.setTo(recipientNo.replaceAll("-", ""));
-        message.setText("누군가 메시지를 보냈어요!\n-메시지 확인 \n https://mysnowball.me/\n-보답하기 \n https://gift.kakao.com");
+        message.setTo(snowBall.getPhoneNumber().replaceAll("-", ""));
+        message.setText(nickName + "님이 메시지를 보냈어요!\n-메시지 확인 \n https://mysnowball.me/snowball/" + snowBall.getId() + "?order=" + order + "\n-보답하기 \n https://gift.kakao.com");
 
         try {
             Thread.sleep(1000);
