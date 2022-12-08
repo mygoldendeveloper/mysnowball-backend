@@ -7,11 +7,10 @@ import lombok.Setter;
 @Setter
 @Getter
 @Builder
-public class SnowBallContentResponse {
+public class SnowBallResponse {
 
     private Long id;
 
-    private String content;
+    private String nickName;
 
-    private SnowBallResponse snowBall;
 }

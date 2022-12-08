@@ -5,5 +5,11 @@ import lombok.Getter;
 @Getter
 public class SnowBallCreateRequest {
 
-    private String name;
+    private Long id;
+
+    private String nickName;
+
+    private String accessToken;
+
+    private String refreshToken;
 }
